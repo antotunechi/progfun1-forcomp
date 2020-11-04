@@ -117,18 +117,14 @@ object Anagrams extends AnagramsInterface {
    *  Note that the order of the occurrence list subsets does not matter -- the subsets
    *  in the example above could have been displayed in some other order.
    */
-  def combinations(occurrences: Occurrences): List[Occurrences] =    //  List()::auxCombine3(occurrences.flatMap(a =>auxCombine(a).reverse ))
-    occurrences match {
-      case List() => List(Nil)
-      case (c, n) :: others =>
-        val tails = combinations(others)
-        tails ::: (
-          for {
-            j <- tails
-            i <- 1 to n
-          }º yield (c, i) :: j)
-    }
-
+  def combinations(occurrences: Occurrences): List[Occurrences] = occurrences match {
+    case List() => List(Nil)
+    case (c, n) :: others =>
+      val tails = combinations(others)
+      tails ::: (for {
+        j <- tails
+        i <- 1 to n
+      } yield (c, i) :: j)}
 
   /** Subtracts occurrence list `y` from occurrence list `x`.
    *
