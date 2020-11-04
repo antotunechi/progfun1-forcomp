@@ -215,7 +215,7 @@ object Dictionary {
       s.getLines.toList
     } catch {
       case e: Exception =>
-        println("Could not load word list: " + e)
+        println("Could not load dword list: " + e)
         throw e
     } finally {
       wordstream.close()
