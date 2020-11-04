@@ -201,8 +201,11 @@ object Anagrams extends AnagramsInterface {
 
   def auxCombine(num:(Char, Int)): List[(Char, Int)]=
   {
+    println("jaja")
+
     if (num._2 == 0) List()
     else num::auxCombine((num._1,num._2-1))
+
   }
 
 }
